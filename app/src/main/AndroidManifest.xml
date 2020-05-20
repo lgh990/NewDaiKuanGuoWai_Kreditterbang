@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.daikuanchaoshi.daikuanguowai">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- Optional : -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_MEDIA_STORAGE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+
+    <application
+        android:name="com.daikuanchaoshi.daikuanguowai.commt.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/yimiaofenqi1111"
+        android:label="${app_name}"
+        android:usesCleartextTraffic="true"
+        android:largeHeap="true"
+        android:hardwareAccelerated="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="${app_icon}"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_LogonRegister"></activity>
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_Loding">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_LogOn"
+            android:label="@string/logon_Masuk" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_Main" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.home.act.Act_Web" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_MyBankCard" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_AddBankCard" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_MyKeFu" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_AboutUs" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_Authentication" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.home.act.Act_ConfirmationOfLoan" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_AuthenticationHome" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.home.act.Act_AgreeWeb" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_Registe" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_FindPassword" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.Act_ChangePassword" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_Bill" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.my.Act_MyBank" />
+        <activity android:name="com.daikuanchaoshi.daikuanguowai.ui.act.mainfgt.home.act.Act_XieYI" />
+
+        <receiver
+            android:name="com.adjust.sdk.AdjustReferrerReceiver"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name=".ui.http.ServiceBro"
+            android:enabled="true"
+            android:exported="true"/>
+    </application>
+
+</manifest>
